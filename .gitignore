@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/EngineTrendMonitoring/.vs/EngineTrendMonitoring
+/EngineTrendMonitoring/EngineTrendMonitoring.Api/obj
+/EngineTrendMonitoring/EngineTrendMonitoring.Api.Core/obj
+/EngineTrendMonitoring/EngineTrendMonitoring.Api.Infrastructure/obj
+/EngineTrendMonitoring/EngineTrendMonitoring.Shared/obj
+/EngineTrendMonitoring/EngineTrendMonitoring.Web/obj
