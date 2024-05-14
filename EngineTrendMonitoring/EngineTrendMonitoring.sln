@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInterface", "UserInterface", "{21F384E5-2072-4552-A3A3-235C91D51561}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationCore", "ApplicationCore", "{518B0BF9-3B1D-4382-857E-5D762D9BE67F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{518B0BF9-3B1D-4382-857E-5D762D9BE67F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{77E2E30C-2F93-4EAA-A969-E084EC0893D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTrendMonitoring.Web", "EngineTrendMonitoring.Web\EngineTrendMonitoring.Web.csproj", "{2350DE95-742C-49CE-8EDF-777B797B8C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineTrendMonitoring.Web", "EngineTrendMonitoring.Web\EngineTrendMonitoring.Web.csproj", "{2350DE95-742C-49CE-8EDF-777B797B8C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTrendMonitoring.Api", "EngineTrendMonitoring.Api\EngineTrendMonitoring.Api.csproj", "{0DF8B933-032F-43D6-AD1C-8D011CE67E90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineTrendMonitoring.Api", "EngineTrendMonitoring.Api\EngineTrendMonitoring.Api.csproj", "{0DF8B933-032F-43D6-AD1C-8D011CE67E90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTrendMonitoring.Api.Core", "EngineTrendMonitoring.Api.Core\EngineTrendMonitoring.Api.Core.csproj", "{06509D87-E6B7-4AF7-A41D-8974B07C2C4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineTrendMonitoring.Api.Core", "EngineTrendMonitoring.Api.Core\EngineTrendMonitoring.Api.Core.csproj", "{06509D87-E6B7-4AF7-A41D-8974B07C2C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTrendMonitoring.Api.Infrastructure", "EngineTrendMonitoring.Api.Infrastructure\EngineTrendMonitoring.Api.Infrastructure.csproj", "{6C3F6A0C-B5F3-4DE6-B8D0-F8DBE23557C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineTrendMonitoring.Api.Infrastructure", "EngineTrendMonitoring.Api.Infrastructure\EngineTrendMonitoring.Api.Infrastructure.csproj", "{6C3F6A0C-B5F3-4DE6-B8D0-F8DBE23557C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTrendMonitoring.Shared", "EngineTrendMonitoring.Shared\EngineTrendMonitoring.Shared.csproj", "{EEDAB164-2AE1-4B74-9DCB-2BD0761E71F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineTrendMonitoring.Shared", "EngineTrendMonitoring.Shared\EngineTrendMonitoring.Shared.csproj", "{EEDAB164-2AE1-4B74-9DCB-2BD0761E71F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1842D855-7BA5-4A28-A291-7370B2D6DD0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,11 +50,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2350DE95-742C-49CE-8EDF-777B797B8C71} = {21F384E5-2072-4552-A3A3-235C91D51561}
-		{0DF8B933-032F-43D6-AD1C-8D011CE67E90} = {21F384E5-2072-4552-A3A3-235C91D51561}
+		{2350DE95-742C-49CE-8EDF-777B797B8C71} = {1842D855-7BA5-4A28-A291-7370B2D6DD0A}
+		{0DF8B933-032F-43D6-AD1C-8D011CE67E90} = {1842D855-7BA5-4A28-A291-7370B2D6DD0A}
 		{06509D87-E6B7-4AF7-A41D-8974B07C2C4C} = {518B0BF9-3B1D-4382-857E-5D762D9BE67F}
 		{6C3F6A0C-B5F3-4DE6-B8D0-F8DBE23557C1} = {77E2E30C-2F93-4EAA-A969-E084EC0893D5}
-		{EEDAB164-2AE1-4B74-9DCB-2BD0761E71F4} = {21F384E5-2072-4552-A3A3-235C91D51561}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40243E5F-C965-4B86-8EAA-8375A7FAA400}

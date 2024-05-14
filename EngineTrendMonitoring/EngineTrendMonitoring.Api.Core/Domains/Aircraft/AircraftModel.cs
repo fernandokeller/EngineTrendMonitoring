@@ -25,12 +25,12 @@
 
         #region Methods
 
-        #region Set Id
-        public void SetId(int id) => Id = id;
+        #region Inactivate
+        public void Inactivate() => Active = false;
         #endregion
 
-        #region Set Active
-        public void SetActive(bool active) => Active = active;
+        #region Activate
+        public void Activate() => Active = true;
         #endregion
 
         #endregion
