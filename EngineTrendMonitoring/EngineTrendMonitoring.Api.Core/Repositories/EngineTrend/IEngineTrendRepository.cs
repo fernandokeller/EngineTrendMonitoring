@@ -6,6 +6,7 @@ namespace EngineTrendMonitoring.Api.Core.Repositories.EngineTrend
     {
         Task<EngineTrendModel?> GetByIdAsync(int id);
         Task<int> AddAsync(EngineTrendModel engineTrendModel);
-        Task<bool> UpdateAsync(EngineTrendModel engineTrendModel);
+        Task UpdateAsync(EngineTrendModel engineTrendModel);
+        Task DeleteAsync(int id);
     }
 }
