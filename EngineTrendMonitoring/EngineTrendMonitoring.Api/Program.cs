@@ -1,4 +1,5 @@
 using EngineTrendMonitoring.Api.Configurations;
+using EngineTrendMonitoring.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
