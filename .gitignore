@@ -17,3 +17,8 @@
 /EngineTrendMonitoring/EngineTrendMonitoring.Web/bin/Debug/net8.0
 /EngineTrendMonitoring/EngineTrendMonitoring.Api.Infrastructure/Databases
 /EngineTrendMonitoring/EngineTrendMonitoring.Api/EngineTrendMonitoring.Api.csproj.user
+/EngineTrendMonitoring/EngineTrendMonitoring.Api/bin/Release/net8.0
+/EngineTrendMonitoring/EngineTrendMonitoring.Api/Properties/PublishProfiles
+/EngineTrendMonitoring/EngineTrendMonitoring.Api.Core/bin/Release/net8.0
+/EngineTrendMonitoring/EngineTrendMonitoring.Api.Infrastructure/bin/Release/net8.0
+/EngineTrendMonitoring/EngineTrendMonitoring.Shared/bin/Release/net8.0
