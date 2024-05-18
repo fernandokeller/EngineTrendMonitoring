@@ -142,7 +142,11 @@ namespace EngineTrendMonitoring.Api.Core.Domains.EngineTrend
         #endregion
 
         #region Inactivate
-        public void Inactivate() => Active = false;
+        public void Inactivate()
+        {
+            Active = false;
+            Validate();
+        }
         #endregion
 
         #region Validate
@@ -163,9 +167,26 @@ namespace EngineTrendMonitoring.Api.Core.Domains.EngineTrend
     {
         public EngineTrendModelValidator()
         {
+            RuleFor(x => x.Id).GreaterThanOrEqualTo(0).WithMessage("Invalid Id");
+            RuleFor(x => x.Active).Equal(true).When(IsCreateMode).WithMessage("You cannot create an inactive entry");
+
             RuleFor(x => x.AircraftId).GreaterThan(0).WithMessage(EngineTrendErrorMessages.AIRCRAFT_IS_REQUIRED);
             RuleFor(x => x.CollectionDate).Must((x, value) => x.CollectionDate >= DateTime.UnixEpoch).WithMessage(EngineTrendErrorMessages.COLLECTION_DATE_IS_REQUIRED);
-            RuleFor(x => x.FlightHours).GreaterThan(0).WithMessage(EngineTrendErrorMessages.FLIGHT_HOURS_IS_REQUIRED);
+            RuleFor(x => x.FlightHours).GreaterThan(EngineTrendConstraints.FLIGHT_HOURS_MIN_VALUE).WithMessage(EngineTrendErrorMessages.FLIGHT_HOURS_IS_REQUIRED);
+
+            RuleFor(x => x.TailVolumeInLitres).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.TAIL_VOLUME_IS_REQUIRED);
+            RuleFor(x => x.FlightCycles).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.FLIGHT_CYCLES_IS_REQUIRED);
+            RuleFor(x => x.OutsideAirTemperatureInCelsius).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.OAT_IS_REQUIRED);
+            RuleFor(x => x.AltitudeInFeet).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.ALTITUDE_IS_REQUIRED);
+            RuleFor(x => x.AirspeedInKnots).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.IAS_IS_REQUIRED);
+            RuleFor(x => x.InterstageTurbineTemperatureInCelsius).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.ITT_IS_REQUIRED);
+            RuleFor(x => x.TorqueInPsi).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.TORQUE_IS_REQUIRED);
+            RuleFor(x => x.PropellerRotationInRpm).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.PROPELLER_IS_REQUIRED);
+            RuleFor(x => x.NGCompressorRotationSpeedPerc).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.NG_IS_REQUIRED);
+            RuleFor(x => x.FuelFlowInLitres).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.FUEL_FLOW_IS_REQUIRED);
+            RuleFor(x => x.OilTemperatureInCelsius).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.OIL_TEMPERATURE_IS_REQUIRED);
+            RuleFor(x => x.OilPressureInPsi).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.OIL_PRESSURE_IS_REQUIRED);
+            RuleFor(x => x.FuelPressureInPsi).NotNull().When(IsEditMode).WithMessage(EngineTrendErrorMessages.FUEL_PRESSURE_IS_REQUIRED);
 
             RuleFor(x => x.TailVolumeInLitres)
                 .GreaterThanOrEqualTo(EngineTrendConstraints.TAIL_VOLUME_MIN_VALUE)
@@ -174,15 +195,61 @@ namespace EngineTrendMonitoring.Api.Core.Domains.EngineTrend
                 .WithMessage(string.Format(EngineTrendErrorMessages.TAIL_VOLUME_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.TAIL_VOLUME_MIN_VALUE, EngineTrendConstraints.TAIL_VOLUME_MAX_VALUE));
 
             RuleFor(x => x.FlightCycles)
-                .GreaterThan(0)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.FLIGHT_CYCLES_MIN_VALUE)
                 .When(x => x.FlightCycles.HasValue)
-                .WithMessage(EngineTrendErrorMessages.FLIGHT_CYCLES_IS_REQUIRED);
+                .WithMessage(string.Format(EngineTrendErrorMessages.FLIGHT_CYCLES_MUST_BE_GREATER_THAN_OR_EQUAL_TO_X, EngineTrendConstraints.FLIGHT_CYCLES_MIN_VALUE));
 
             RuleFor(x => x.InterstageTurbineTemperatureInCelsius)
                 .GreaterThanOrEqualTo(EngineTrendConstraints.ITT_MIN_VALUE)
                 .LessThanOrEqualTo(EngineTrendConstraints.ITT_MAX_VALUE)
+                .When(x => x.InterstageTurbineTemperatureInCelsius.HasValue)
                 .WithMessage(string.Format(EngineTrendErrorMessages.ITT_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.ITT_MIN_VALUE, EngineTrendConstraints.ITT_MAX_VALUE));
+
+            RuleFor(x => x.TorqueInPsi)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.TORQUE_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.TORQUE_MAX_VALUE)
+                .When(x => x.TorqueInPsi.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.TORQUE_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.TORQUE_MIN_VALUE, EngineTrendConstraints.TORQUE_MAX_VALUE));
+
+            RuleFor(x => x.PropellerRotationInRpm)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.PROPELLER_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.PROPELLER_MAX_VALUE)
+                .When(x => x.PropellerRotationInRpm.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.PROPELLER_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.PROPELLER_MIN_VALUE, EngineTrendConstraints.PROPELLER_MAX_VALUE));
+
+            RuleFor(x => x.NGCompressorRotationSpeedPerc)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.NG_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.NG_MAX_VALUE)
+                .When(x => x.NGCompressorRotationSpeedPerc.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.NG_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.NG_MIN_VALUE, EngineTrendConstraints.NG_MAX_VALUE));
+
+            RuleFor(x => x.FuelFlowInLitres)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.FUEL_FLOW_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.FUEL_FLOW_MAX_VALUE)
+                .When(x => x.FuelFlowInLitres.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.FUEL_FLOW_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.FUEL_FLOW_MIN_VALUE, EngineTrendConstraints.FUEL_FLOW_MAX_VALUE));
+
+            RuleFor(x => x.OilTemperatureInCelsius)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.OIL_TEMPERATURE_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.OIL_TEMPERATURE_MAX_VALUE)
+                .When(x => x.OilTemperatureInCelsius.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.OIL_TEMPERATURE_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.OIL_TEMPERATURE_MIN_VALUE, EngineTrendConstraints.OIL_TEMPERATURE_MAX_VALUE));
+
+            RuleFor(x => x.OilPressureInPsi)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.OIL_PRESSURE_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.OIL_PRESSURE_MAX_VALUE)
+                .When(x => x.OilPressureInPsi.HasValue)
+                .WithMessage(string.Format(EngineTrendErrorMessages.OIL_PRESSURE_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.OIL_PRESSURE_MIN_VALUE, EngineTrendConstraints.OIL_PRESSURE_MAX_VALUE));
+
+            RuleFor(x => x.FuelPressureInPsi)
+                .GreaterThanOrEqualTo(EngineTrendConstraints.FUEL_PRESSURE_MIN_VALUE)
+                .LessThanOrEqualTo(EngineTrendConstraints.FUEL_PRESSURE_MAX_VALUE)
+                .When(x => x.FuelPressureInPsi.HasValue)
+                .WithMessage(x => string.Format(EngineTrendErrorMessages.FUEL_PRESSURE_MUST_BE_BETWEEN_X_AND_Y, EngineTrendConstraints.FUEL_PRESSURE_MIN_VALUE, EngineTrendConstraints.FUEL_PRESSURE_MAX_VALUE));
         }
+
+        internal bool IsCreateMode(EngineTrendModel engineTrendModel) => engineTrendModel.Id == 0;
+        internal bool IsEditMode(EngineTrendModel engineTrendModel) => engineTrendModel.Id > 0;
     }
     #endregion
 }

@@ -11,16 +11,9 @@ namespace EngineTrendMonitoring.Api.Infrastructure
         #endregion
 
         #region Constructor
-        public DbSession()
+        public DbSession(string connectionString)
         {
-            var csBuilder = new SqlConnectionStringBuilder()
-            {
-                DataSource = @"(LocalDB)\MSSQLLocalDB",
-                AttachDBFilename = @"..\Database\EngineTrendDatabase.mdf",
-                IntegratedSecurity = true
-            };
-
-            Connection = new SqlConnection(csBuilder.ConnectionString);
+            Connection = new SqlConnection(connectionString);
             Connection.Open();
         }
         #endregion

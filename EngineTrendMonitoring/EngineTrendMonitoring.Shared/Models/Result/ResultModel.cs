@@ -82,6 +82,11 @@ namespace EngineTrendMonitoring.Shared.Models.Result
         #endregion
 
         #region With Success
+        public static ResultModel WithSuccess()
+        {
+            return new ResultModel() { Success = true };
+        }
+
         public static ResultModel WithSuccess(dynamic? resultData)
         {
             return new ResultModel() { Success = true, ResultData = resultData };
