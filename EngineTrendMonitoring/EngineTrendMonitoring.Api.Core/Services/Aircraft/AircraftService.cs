@@ -28,6 +28,9 @@ namespace EngineTrendMonitoring.Api.Core.Services.Aircraft
         #region Get By Id Async
         public async Task<ResultModel<AircraftResponseModel>> GetByIdAsync(int id)
         {
+            if (id < 1)
+                return ResultModel<AircraftResponseModel>.WithError(AircraftErrorMessages.AIRCRAFT_ID_IS_REQUIRED);
+
             var aircraftResponseModel = await _aircraftDAL.GetByIdAsync(id);
 
             if (aircraftResponseModel is null)
@@ -60,6 +63,9 @@ namespace EngineTrendMonitoring.Api.Core.Services.Aircraft
         #region Edit Async
         public async Task<ResultModel> EditAsync(EditAircraftRequestModel requestModel)
         {
+            if (requestModel.Id < 1)
+                return ResultModel.WithError(AircraftErrorMessages.AIRCRAFT_ID_IS_REQUIRED);
+
             var aircraftModel = await _aircraftRepository.GetByIdAsync(requestModel.Id);
 
             if (aircraftModel is null)
@@ -76,6 +82,9 @@ namespace EngineTrendMonitoring.Api.Core.Services.Aircraft
         #region Delete Async
         public async Task<ResultModel> DeleteAsync(int id)
         {
+            if (id < 1)
+                return ResultModel.WithError(AircraftErrorMessages.AIRCRAFT_ID_IS_REQUIRED);
+
             var aircraftModel = await _aircraftRepository.GetByIdAsync(id);
 
             if (aircraftModel is null)

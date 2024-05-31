@@ -70,7 +70,7 @@ namespace EngineTrendMonitoring.Api.Infrastructure.Repositories.EngineTrend
                             FuelFlowInLitres, 
                             OilTemperatureInCelsius, 
                             OilPressureInPsi, 
-                            FuelPressurePsi, 
+                            FuelPressureInPsi, 
                             Active 
                         ) OUTPUT INSERTED.Id 
                         VALUES (
@@ -89,7 +89,7 @@ namespace EngineTrendMonitoring.Api.Infrastructure.Repositories.EngineTrend
                             @FuelFlowInLitres, 
                             @OilTemperatureInCelsius, 
                             @OilPressureInPsi, 
-                            @FuelPressurePsi, 
+                            @FuelPressureInPsi, 
                             @Active 
                         )";
 
@@ -110,7 +110,7 @@ namespace EngineTrendMonitoring.Api.Infrastructure.Repositories.EngineTrend
             commandParams.Add("@FuelFlowInLitres", engineTrendModel.FuelFlowInLitres, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@OilTemperatureInCelsius", engineTrendModel.OilTemperatureInCelsius, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@OilPressureInPsi", engineTrendModel.OilPressureInPsi, DbType.Decimal, ParameterDirection.Input);
-            commandParams.Add("@FuelPressurePsi", engineTrendModel.FuelPressureInPsi, DbType.Decimal, ParameterDirection.Input);
+            commandParams.Add("@FuelPressureInPsi", engineTrendModel.FuelPressureInPsi, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@Active", engineTrendModel.Active, DbType.Boolean, ParameterDirection.Input);
 
             return await _session.Connection.ExecuteScalarAsync<int>(sql, param: commandParams, transaction: _session.Transaction);
@@ -121,7 +121,7 @@ namespace EngineTrendMonitoring.Api.Infrastructure.Repositories.EngineTrend
         public async Task UpdateAsync(EngineTrendModel engineTrendModel)
         {
             var command = @"UPDATE EngineTrend SET 
-                                , AircraftId = @AircraftId 
+                                AircraftId = @AircraftId 
                                 , TailVolumeInLitres = @TailVolumeInLitres 
                                 , CollectionDate = @CollectionDate 
                                 , FlightHours = @FlightHours 
@@ -159,7 +159,7 @@ namespace EngineTrendMonitoring.Api.Infrastructure.Repositories.EngineTrend
             commandParams.Add("@FuelFlowInLitres", engineTrendModel.FuelFlowInLitres, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@OilTemperatureInCelsius", engineTrendModel.OilTemperatureInCelsius, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@OilPressureInPsi", engineTrendModel.OilPressureInPsi, DbType.Decimal, ParameterDirection.Input);
-            commandParams.Add("@FuelPressureInPsi", engineTrendModel.FuelFlowInLitres, DbType.Decimal, ParameterDirection.Input);
+            commandParams.Add("@FuelPressureInPsi", engineTrendModel.FuelPressureInPsi, DbType.Decimal, ParameterDirection.Input);
             commandParams.Add("@Active", engineTrendModel.Active, DbType.Boolean, ParameterDirection.Input);
 
             await _session.Connection.ExecuteAsync(command, param: commandParams, transaction: _session.Transaction);

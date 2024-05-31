@@ -255,7 +255,7 @@ namespace EngineTrendMonitoring.Shared.Utils
                 default:
                     break;
                 case UnitOfTemperatureEnum.Fahrenheit:
-                    value = (value - 32) * (decimal)1.8;
+                    value = (value - 32m) * 5/9;
                     break;
             }
 
@@ -272,7 +272,7 @@ namespace EngineTrendMonitoring.Shared.Utils
                 default:
                     break;
                 case UnitOfTemperatureEnum.Celsius:
-                    value = (value * (decimal)1.8) + 32;
+                    value = (value * 9/5) + 32m;
                     break;
             }
 

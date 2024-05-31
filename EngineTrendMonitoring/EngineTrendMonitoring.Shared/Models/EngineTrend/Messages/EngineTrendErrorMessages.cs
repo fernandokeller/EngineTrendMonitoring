@@ -3,11 +3,13 @@
     public class EngineTrendErrorMessages
     {
         public const string ENGINE_TREND_X_HAS_NOT_BEEN_FOUND = "Engine Trend {0} has not been found";
-        
+        public const string ENGINE_TREND_X_IS_ALREADY_INACTIVE = "Engine Trend {0} is already inactive";
+
         public const string OAT_UNIT_TYPE_IS_REQUIRED = "OAT unit type is required";
         public const string ITT_UNIT_TYPE_IS_REQUIRED = "ITT unit type is required";
         public const string OIL_TEMPERATURE_UNIT_TYPE_IS_REQUIRED = "Oil temperature unit type is required";
 
+        public const string ENGINE_TREND_ID_IS_REQUIRED = "Engine Trend Id is required";
         public const string AIRCRAFT_IS_REQUIRED = "Aircraft is required";
         public const string COLLECTION_DATE_IS_REQUIRED = "Collection Date is required";
         public const string FLIGHT_HOURS_IS_REQUIRED = "Flight Hours is required";

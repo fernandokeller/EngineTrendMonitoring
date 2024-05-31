@@ -2,6 +2,7 @@
 {
     public class AircraftErrorMessages
     {
+        public const string AIRCRAFT_ID_IS_REQUIRED = "Aircraft Id is required";
         public const string DESCRIPTION_IS_REQUIRED = "Description is required";
         public const string DESCRIPTION_MAX_LENGTH_IS_X = "Description maximum length is {0}";
         public const string REGNOID_MAX_LENGTH_IS_X = "RegNoId maximum length is {0}";
