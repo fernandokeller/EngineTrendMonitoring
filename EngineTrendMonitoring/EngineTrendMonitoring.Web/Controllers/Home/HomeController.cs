@@ -2,7 +2,7 @@ using EngineTrendMonitoring.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace EngineTrendMonitoring.Web.Controllers
+namespace EngineTrendMonitoring.Web.Controllers.Home
 {
     public class HomeController : Controller
     {
