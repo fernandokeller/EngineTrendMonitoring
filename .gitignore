@@ -23,3 +23,5 @@
 /EngineTrendMonitoring/EngineTrendMonitoring.Api.Infrastructure/bin/Release/net8.0
 /EngineTrendMonitoring/EngineTrendMonitoring.Shared/bin/Release/net8.0
 /EngineTrendMonitoring/EngineTrendMonitoring.Web/bin/Release/net8.0
+/EngineTrendMonitoring/EngineTrendMonitoring.Web/wwwroot/lib/bootstrap/node_modules
+/EngineTrendMonitoring/EngineTrendMonitoring.Web/wwwroot/lib/bootstrap/package-lock.json
