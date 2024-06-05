@@ -1,3 +1,4 @@
+/*#region Default*/
 html {
   font-size: 14px;
 }
@@ -20,3 +21,205 @@ html {
 body {
   margin-bottom: 60px;
 }
+/*#endregion*/
+
+/*#region Root*/
+:root {
+    /*#region Colors*/
+    --bd-purple: #4c0bce;
+
+    /*#region Blue*/
+    --bd-blue-100: #cfe2ff;
+    --bd-blue-200: #9ec5fe;
+    --bd-blue-300: #6ea8fe;
+    --bd-blue-400: #3d8bfd;
+    --bd-blue-500: #0d6efd;
+    --bd-blue-600: #0a58ca;
+    --bd-blue-700: #084298;
+    --bd-blue-800: #052c65;
+    --bd-blue-900: #031633;
+    /*#endregion*/
+
+    /*#region Indigo*/
+    --bd-indigo-100: #e0cffc;
+    --bd-indigo-200: #c29ffa;
+    --bd-indigo-300: #a370f7;
+    --bd-indigo-400: #8540f5;
+    --bd-indigo-500: #6610f2;
+    --bd-indigo-600: #520dc2;
+    --bd-indigo-700: #3d0a91;
+    --bd-indigo-800: #290661;
+    --bd-indigo-900: #140330;
+    /*#endregion*/
+
+    /*#endregion*/
+}
+/*#endregion*/
+
+/*#region Light Theme*/
+[data-bs-theme="light"] {
+    --bd-violet: #712cf9;
+    --base02: #c8c8fa;
+    --base03: #565c64;
+    --base04: #666;
+    --base05: #333;
+    --base06: #fff;
+    --base07: #13795b;
+    --base08: #c6303e;
+    --base09: #087990;
+    --base0A: #6f42c1;
+    --base0B: #084298;
+    --base0C: #084298;
+    --base0D: #6f42c1;
+    --base0E: #ab296a;
+    --base0F: #333;
+}
+/*#endregion*/
+
+/*#region Dark Theme*/
+[data-bs-theme="dark"] {
+    --bd-violet: #9461fb;
+    --base02: #3e4451;
+    --base03: #868e96;
+    --base04: #868e96;
+    --base05: #abb2bf;
+    --base06: #b6bdca;
+    --base07: #feb272;
+    --base08: #6edff6;
+    --base09: #feb272;
+    --base0A: #ffe69c;
+    --base0B: #79dfc1;
+    --base0C: #79dfc1;
+    --base0D: #6ea8fe;
+    --base0E: #c29ffa;
+    --base0F: #ea868f;
+}
+/*#endregion*/
+
+/*#region All Breakpoints*/
+
+/*#region Background Colors*/
+
+/*#region Blue*/
+.bg-blue-100 { background-color: var(--bd-blue-100); }
+
+.bg-blue-200 { background-color: var(--bd-blue-200); }
+
+.bg-blue-300 { background-color: var(--bd-blue-300); }
+
+.bg-blue-400 { background-color: var(--bd-blue-400); }
+
+.bg-blue-500 { background-color: var(--bd-blue-500); }
+
+.bg-blue-600 { background-color: var(--bd-blue-600); }
+
+.bg-blue-700 { background-color: var(--bd-blue-700); }
+
+.bg-blue-800 { background-color: var(--bd-blue-800); }
+
+.bg-blue-900 { background-color: var(--bd-blue-900); }
+/*#endregion*/
+
+/*#region Indigo*/
+.bg-indigo-100 { background-color: var(--bd-indigo-100); }
+
+.bg-indigo-200 { background-color: var(--bd-indigo-200); }
+
+.bg-indigo-300 { background-color: var(--bd-indigo-300); }
+
+.bg-indigo-400 { background-color: var(--bd-indigo-400); }
+
+.bg-indigo-500 { background-color: var(--bd-indigo-500); }
+
+.bg-indigo-600 { background-color: var(--bd-indigo-600); }
+
+.bg-indigo-700 { background-color: var(--bd-indigo-700); }
+
+.bg-indigo-800 { background-color: var(--bd-indigo-800); }
+
+.bg-indigo-900 { background-color: var(--bd-indigo-900); }
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Text Colors*/
+
+/*#region Blue*/
+.text-blue-100 { color: var(--bd-blue-100); }
+
+.text-blue-200 { color: var(--bd-blue-200); }
+
+.text-blue-300 { color: var(--bd-blue-300); }
+
+.text-blue-400 { color: var(--bd-blue-400); }
+
+.text-blue-500 { color: var(--bd-blue-500); }
+
+.text-blue-600 { color: var(--bd-blue-600); }
+
+.text-blue-700 { color: var(--bd-blue-700); }
+
+.text-blue-800 { color: var(--bd-blue-800); }
+
+.text-blue-900 { color: var(--bd-blue-900); }
+/*#endregion*/
+
+/*#region Indigo*/
+.text-indigo-100 { color: var(--bd-indigo-100); }
+
+.text-indigo-200 { color: var(--bd-indigo-200); }
+
+.text-indigo-300 { color: var(--bd-indigo-300); }
+
+.text-indigo-400 { color: var(--bd-indigo-400); }
+
+.text-indigo-500 { color: var(--bd-indigo-500); }
+
+.text-indigo-600 { color: var(--bd-indigo-600); }
+
+.text-indigo-700 { color: var(--bd-indigo-700); }
+
+.text-indigo-800 { color: var(--bd-indigo-800); }
+
+.text-indigo-900 { color: var(--bd-indigo-900); }
+/*#endregion*/
+
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Extra Small Breakpoint (xs)*/
+@media (max-width: 575.98px) {
+
+}
+/*#endregion*/
+
+/*#region Small Breakpoint (sm)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+/*#endregion*/
+
+/*#region Medium Breakpoint (md)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+/*#endregion*/
+
+/*#region Large Breakpoint (lg)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+/*#endregion*/
+
+/*#region Extra Large Breakpoint (xl)*/
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+}
+/*#endregion*/
+
+/*#region Extra Extra Large Breakpoint (xxl)*/
+@media (min-width: 1400px) {
+
+}
+/*#endregion*/
