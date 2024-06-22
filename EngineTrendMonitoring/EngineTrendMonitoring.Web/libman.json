@@ -23,6 +23,11 @@
     {
       "library": "jquery-validation-unobtrusive@4.0.0",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "chart.js@4.4.3",
+      "destination": "wwwroot/lib/chart.js/"
     }
   ]
 }
